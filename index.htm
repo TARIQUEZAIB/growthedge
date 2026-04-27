@@ -158,7 +158,7 @@ input, textarea {
         <a href="#contact">Contact</a>
     </div>
 
-    <button class="nav-cta" onclick="scrollToContact()">Start Conversation</button>
+    <button class="nav-cta" onclick="scrollToContact()">Start a Conversation</button>
 </nav>
 
 <!-- HERO -->
@@ -178,47 +178,20 @@ input, textarea {
 
 <div class="card">
 <h3>SEO Services</h3>
-<p>We build sustainable organic growth aligned with business goals.</p>
-
-<strong>What We Do</strong>
-<ul>
-<li>Keyword strategy & competitor analysis</li>
-<li>Technical SEO & on-page optimization</li>
-<li>Content strategy & backlinks</li>
-</ul>
-
-<strong>Outcome</strong>
-<p>Higher rankings, consistent inbound leads</p>
+<p>Keyword strategy, technical SEO, content optimization.</p>
+<p><strong>Impact:</strong> Higher rankings, consistent leads</p>
 </div>
 
 <div class="card">
 <h3>Web Development</h3>
-<p>We build scalable, high-performance platforms.</p>
-
-<strong>What We Do</strong>
-<ul>
-<li>Web apps, CRM, dashboards</li>
-<li>Modern UI/UX</li>
-<li>Performance optimization</li>
-</ul>
-
-<strong>Outcome</strong>
-<p>Better UX, higher conversions</p>
+<p>Websites, apps, dashboards, UI/UX.</p>
+<p><strong>Impact:</strong> Better conversion & performance</p>
 </div>
 
 <div class="card">
 <h3>Talent Placement</h3>
-<p>We help companies hire faster and better.</p>
-
-<strong>What We Do</strong>
-<ul>
-<li>Candidate sourcing</li>
-<li>Technical screening</li>
-<li>Shortlisting</li>
-</ul>
-
-<strong>Outcome</strong>
-<p>Faster hiring, better talent quality</p>
+<p>Sourcing, screening, hiring support.</p>
+<p><strong>Impact:</strong> Faster hiring, better talent</p>
 </div>
 
 </div>
@@ -232,26 +205,17 @@ input, textarea {
 
 <div class="card">
 <h3>SEO Growth</h3>
-<p><strong>Challenge:</strong> Low organic traffic</p>
-<p><strong>Execution:</strong> SEO + content strategy</p>
-<p><strong>Result:</strong> 180% traffic increase</p>
-<p><strong>Impact:</strong> 3x leads</p>
+<p>180% traffic increase → 3x leads</p>
 </div>
 
 <div class="card">
 <h3>Website Revamp</h3>
-<p><strong>Challenge:</strong> Poor conversion</p>
-<p><strong>Execution:</strong> UI + performance optimization</p>
-<p><strong>Result:</strong> +40% conversions</p>
-<p><strong>Impact:</strong> Better engagement</p>
+<p>+40% conversions</p>
 </div>
 
 <div class="card">
 <h3>Hiring Scale</h3>
-<p><strong>Challenge:</strong> Hiring delays</p>
-<p><strong>Execution:</strong> Screening + sourcing</p>
-<p><strong>Result:</strong> 12 hires in 45 days</p>
-<p><strong>Impact:</strong> 60% faster hiring</p>
+<p>12 hires in 45 days</p>
 </div>
 
 </div>
@@ -265,7 +229,7 @@ input, textarea {
 <input id="name" placeholder="Name" required>
 <input id="email" placeholder="Email" required>
 <textarea id="msg" placeholder="Requirement" required></textarea>
-<button class="btn">Send Message</button>
+<button type="submit" class="btn">Send Message</button>
 </form>
 
 <p id="status"></p>
@@ -280,23 +244,33 @@ input, textarea {
 document.getElementById("contact-form").addEventListener("submit", function(e){
 e.preventDefault();
 
-const name=name.value;
-const email=email.value;
-const message=msg.value;
-const status=document.getElementById("status");
+const status = document.getElementById("status");
 
-status.innerHTML="Sending...";
+// ✅ FIXED
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const message = document.getElementById("msg").value;
 
-emailjs.send("service_2lwfetn","template_vwrozwa",{name,email,message})
-.then(()=>{
-return emailjs.send("service_2lwfetn","template_mdxu4m9",{name,email});
+status.innerHTML = "Sending...";
+
+emailjs.send("service_2lwfetn","template_vwrozwa",{
+    name: name,
+    email: email,
+    message: message
 })
 .then(()=>{
-status.innerHTML="✅ Message sent!";
-document.getElementById("contact-form").reset();
+    return emailjs.send("service_2lwfetn","template_mdxu4m9",{
+        name: name,
+        email: email
+    });
 })
-.catch(()=>{
-status.innerHTML="❌ Failed";
+.then(()=>{
+    status.innerHTML = "✅ Message sent!";
+    document.getElementById("contact-form").reset();
+})
+.catch((error)=>{
+    status.innerHTML = "❌ Failed";
+    console.log(error);
 });
 });
 </script>
