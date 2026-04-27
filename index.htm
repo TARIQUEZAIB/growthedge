@@ -12,6 +12,7 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     color: #111;
+    background: #fff;
 }
 
 h1,h2,h3 {
@@ -20,17 +21,28 @@ h1,h2,h3 {
 
 /* NAV */
 nav {
-    position: fixed;
-    width: 100%;
-    background: white;
-    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;
     border-bottom: 1px solid #eee;
-    text-align: center;
-    z-index: 1000;
+    background: white;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    font-family: 'Playfair Display';
+    letter-spacing: 1px;
+}
+
+.logo small {
+    display: block;
+    font-size: 10px;
+    color: #666;
 }
 
 nav a {
-    margin: 0 20px;
+    margin-left: 30px;
     text-decoration: none;
     color: #111;
     font-size: 14px;
@@ -38,117 +50,80 @@ nav a {
 
 /* HERO */
 .hero {
-    height: 100vh;
-    background: url('https://images.unsplash.com/photo-1492724441997-5dc865305da7') center/cover;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 80px 60px;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    position: relative;
-}
-
-.hero::after {
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.6);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
 }
 
 .hero h1 {
-    font-size: 56px;
-    margin-bottom: 20px;
+    font-size: 48px;
 }
 
 .hero p {
-    font-size: 18px;
-    opacity: 0.9;
+    color: #555;
+    max-width: 500px;
 }
 
+.hero img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+/* BUTTON */
 .btn {
     margin-top: 20px;
-    padding: 12px 26px;
-    background: white;
-    color: black;
+    padding: 12px 24px;
+    background: #0A2540;
+    color: white;
     border: none;
     cursor: pointer;
 }
 
 /* SECTION */
 .section {
-    padding: 100px 20px;
-    max-width: 1100px;
-    margin: auto;
+    padding: 80px 60px;
 }
 
 .section h2 {
-    text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 /* SERVICES */
 .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3,1fr);
+    gap: 40px;
 }
 
-.card {
-    background: white;
-    padding: 30px;
-    border: 1px solid #eee;
-    transition: 0.3s;
+.service {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
 }
 
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+.service p {
+    color: #555;
 }
 
-.card img {
-    width: 50px;
-    margin-bottom: 15px;
-}
-
-.card ul {
+.service ul {
     padding-left: 18px;
     color: #555;
 }
 
-/* INSIGHTS */
-.insights {
-    background: #f7f7f7;
+/* LIGHT BG */
+.light {
+    background: #f5f7fa;
 }
 
-.insight-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    gap: 30px;
-}
-
-.insight {
-    background: white;
-    padding: 20px;
-    border: 1px solid #eee;
-}
-
-.insight img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    margin-bottom: 15px;
+/* CASE STUDY */
+.case {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
 }
 
 /* CONTACT */
 form {
     max-width: 500px;
-    margin: auto;
 }
 
 input, textarea {
@@ -160,112 +135,148 @@ input, textarea {
 
 /* FOOTER */
 footer {
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 30px;
+    border-top: 1px solid #eee;
+    padding: 30px 60px;
+    color: #777;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+    <div class="logo">
+        GrowthEdge
+        <small>CONSULTING</small>
+    </div>
+
+    <div>
+        <a href="#services">Capabilities</a>
+        <a href="#cases">Case Studies</a>
+        <a href="#contact">Contact</a>
+    </div>
 </nav>
 
-<section class="hero" id="home">
-    <div class="hero-content">
-        <h1>Building Digital Growth Through SEO, Technology & Talent</h1>
-        <p>We help businesses scale with high-performance websites, search visibility, and top-tier hiring.</p>
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1>
+            Driving Growth Through SEO,<br>
+            Technology, and Talent
+        </h1>
+
+        <p>
+            We help organizations scale with high-performance websites,
+            strong search visibility, and strategic hiring solutions.
+        </p>
+
         <button class="btn" onclick="scrollToContact()">Start a Conversation</button>
     </div>
+
+    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786">
 </section>
 
-<section class="section" id="services">
-    <h2>Our Capabilities</h2>
+<!-- SERVICES -->
+<section class="section light" id="services">
+    <h2>Capabilities</h2>
 
     <div class="services">
 
-        <div class="card">
-            <img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png">
+        <div class="service">
             <h3>SEO Services</h3>
+            <p>Improve visibility and drive inbound growth.</p>
             <ul>
-                <li>Keyword research & ranking strategy</li>
+                <li>Keyword research & strategy</li>
                 <li>Technical SEO optimization</li>
-                <li>Content & backlink strategy</li>
+                <li>Content & backlinks</li>
                 <li>Performance tracking</li>
             </ul>
         </div>
 
-        <div class="card">
-            <img src="https://cdn-icons-png.flaticon.com/512/2721/2721293.png">
+        <div class="service">
             <h3>Web Development</h3>
+            <p>Build scalable, high-performance platforms.</p>
             <ul>
-                <li>Business websites & portals</li>
-                <li>CRM & dashboard systems</li>
-                <li>Responsive UI/UX design</li>
+                <li>Business websites & web apps</li>
+                <li>CRM & dashboards</li>
+                <li>UI/UX design</li>
                 <li>Performance optimization</li>
             </ul>
         </div>
 
-        <div class="card">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+        <div class="service">
             <h3>Talent Placement</h3>
+            <p>Hire skilled professionals quickly.</p>
             <ul>
-                <li>Pre-vetted candidates</li>
+                <li>Candidate sourcing</li>
                 <li>Technical screening</li>
+                <li>Shortlisting</li>
                 <li>Fast hiring cycle</li>
-                <li>IT & digital hiring expertise</li>
             </ul>
         </div>
 
     </div>
 </section>
 
-<section class="section insights">
-    <h2>Insights</h2>
+<!-- CASE STUDIES -->
+<section class="section" id="cases">
+    <h2>Case Studies</h2>
 
-    <div class="insight-grid">
+    <div class="services">
 
-        <div class="insight">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
-            <h3>SEO Trends That Will Dominate 2026</h3>
+        <div class="case">
+            <h3>SEO Growth for E-commerce</h3>
+            <p>Increased organic traffic by 180% in 6 months.</p>
+            <p><strong>Result:</strong> 3x more leads</p>
         </div>
 
-        <div class="insight">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
-            <h3>Building High-Converting Websites</h3>
+        <div class="case">
+            <h3>Website Revamp</h3>
+            <p>Redesigned website improving speed & UX.</p>
+            <p><strong>Result:</strong> 40% higher conversions</p>
         </div>
 
-        <div class="insight">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
-            <h3>The Future of Tech Hiring</h3>
+        <div class="case">
+            <h3>Hiring for Startup</h3>
+            <p>Placed 12+ developers in 45 days.</p>
+            <p><strong>Result:</strong> 60% faster hiring</p>
         </div>
 
     </div>
 </section>
 
+<!-- CONTACT -->
 <section class="section" id="contact">
     <h2>Start a Conversation</h2>
 
     <form onsubmit="submitForm(event)">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
+        <input placeholder="Name" required>
+        <input placeholder="Email" required>
         <textarea placeholder="How can we help?" required></textarea>
-        <button type="submit" class="btn">Submit</button>
+        <button class="btn">Submit</button>
     </form>
 </section>
 
+<!-- FOOTER -->
 <footer>
     © 2026 GrowthEdge Consulting
 </footer>
 
 <script>
 function scrollToContact() {
-    document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
+    document.getElementById('contact').scrollIntoView({behavior:'smooth'});
 }
 
 function submitForm(e) {
