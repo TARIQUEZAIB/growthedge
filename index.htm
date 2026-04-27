@@ -12,115 +12,163 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     color: #111;
-    background: #fff;
 }
 
-h1, h2, h3 {
+h1,h2,h3 {
     font-family: 'Playfair Display', serif;
 }
 
-header {
-    background: #0a2540;
-    color: white;
-    padding: 30px 20px;
-    text-align: center;
-}
-
+/* NAV */
 nav {
+    position: fixed;
+    width: 100%;
     background: white;
     padding: 15px;
-    text-align: center;
     border-bottom: 1px solid #eee;
+    text-align: center;
+    z-index: 1000;
 }
 
 nav a {
-    color: #111;
     margin: 0 20px;
     text-decoration: none;
+    color: #111;
+    font-size: 14px;
 }
 
+/* HERO */
 .hero {
-    background: url('https://images.unsplash.com/photo-1551434678-e076c223a692') center/cover;
-    color: white;
-    padding: 140px 20px;
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1492724441997-5dc865305da7') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    color: white;
     position: relative;
 }
 
 .hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(10, 37, 64, 0.7);
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.6);
 }
 
-.hero * {
+.hero-content {
     position: relative;
     z-index: 1;
+    max-width: 800px;
 }
 
-.hero h2 {
-    font-size: 48px;
+.hero h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
 }
 
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 12px 26px;
+    background: white;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+/* SECTION */
 .section {
-    padding: 80px 20px;
+    padding: 100px 20px;
     max-width: 1100px;
     margin: auto;
 }
 
 .section h2 {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 
-.service {
-    margin-bottom: 50px;
+/* SERVICES */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 30px;
 }
 
-.service h3 {
-    margin-bottom: 10px;
+.card {
+    background: white;
+    padding: 30px;
+    border: 1px solid #eee;
+    transition: 0.3s;
 }
 
-.service ul {
-    padding-left: 20px;
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 50px;
+    margin-bottom: 15px;
+}
+
+.card ul {
+    padding-left: 18px;
     color: #555;
 }
 
-.highlight {
-    margin-top: 10px;
-    font-weight: 500;
+/* INSIGHTS */
+.insights {
+    background: #f7f7f7;
 }
 
-button {
-    padding: 12px 26px;
-    background: black;
-    color: white;
-    border: none;
-    cursor: pointer;
+.insight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 30px;
+}
+
+.insight {
+    background: white;
+    padding: 20px;
+    border: 1px solid #eee;
+}
+
+.insight img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* CONTACT */
+form {
+    max-width: 500px;
+    margin: auto;
 }
 
 input, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
+    margin-bottom: 15px;
 }
 
+/* FOOTER */
 footer {
-    background: #0a2540;
+    background: #111;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
 }
 </style>
 </head>
 
 <body>
-
-<header>
-    <h1>GrowthEdge Consulting</h1>
-    <p>SEO Services | Web Development | Talent Placement</p>
-</header>
 
 <nav>
     <a href="#home">Home</a>
@@ -129,83 +177,85 @@ footer {
 </nav>
 
 <section class="hero" id="home">
-    <h2>Building Digital Growth Through SEO, Technology & Talent</h2>
-    <p>We help businesses scale with strong search visibility, modern technology, and top-tier talent.</p>
-    <button onclick="scrollToContact()">Start a Conversation</button>
+    <div class="hero-content">
+        <h1>Building Digital Growth Through SEO, Technology & Talent</h1>
+        <p>We help businesses scale with high-performance websites, search visibility, and top-tier hiring.</p>
+        <button class="btn" onclick="scrollToContact()">Start a Conversation</button>
+    </div>
 </section>
 
 <section class="section" id="services">
     <h2>Our Capabilities</h2>
 
-    <!-- SEO -->
-    <div class="service">
-        <h3>SEO Services</h3>
-        <p>
-            We help businesses improve visibility on search engines by combining technical expertise,
-            content strategy, and data-driven optimization for long-term growth.
-        </p>
+    <div class="services">
 
-        <ul>
-            <li>Keyword research targeting high-intent traffic</li>
-            <li>On-page optimization (meta, headings, structure)</li>
-            <li>Technical SEO (speed, indexing, mobile optimization)</li>
-            <li>Content strategy for ranking and conversions</li>
-            <li>Authority building through backlinks</li>
-            <li>Monthly performance tracking and reporting</li>
-        </ul>
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png">
+            <h3>SEO Services</h3>
+            <ul>
+                <li>Keyword research & ranking strategy</li>
+                <li>Technical SEO optimization</li>
+                <li>Content & backlink strategy</li>
+                <li>Performance tracking</li>
+            </ul>
+        </div>
 
-        <p class="highlight">👉 Result: More traffic, better rankings, consistent inbound leads</p>
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2721/2721293.png">
+            <h3>Web Development</h3>
+            <ul>
+                <li>Business websites & portals</li>
+                <li>CRM & dashboard systems</li>
+                <li>Responsive UI/UX design</li>
+                <li>Performance optimization</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+            <h3>Talent Placement</h3>
+            <ul>
+                <li>Pre-vetted candidates</li>
+                <li>Technical screening</li>
+                <li>Fast hiring cycle</li>
+                <li>IT & digital hiring expertise</li>
+            </ul>
+        </div>
+
     </div>
+</section>
 
-    <!-- WEB DEV -->
-    <div class="service">
-        <h3>Web Development</h3>
-        <p>
-            We build high-performance websites and applications designed for scalability,
-            performance, and business growth.
-        </p>
+<section class="section insights">
+    <h2>Insights</h2>
 
-        <ul>
-            <li>Custom business and corporate websites</li>
-            <li>Web applications (CRM, dashboards, portals)</li>
-            <li>Modern UI/UX design</li>
-            <li>Fast, SEO-friendly architecture</li>
-            <li>Fully responsive across all devices</li>
-            <li>Ongoing maintenance and support</li>
-        </ul>
+    <div class="insight-grid">
 
-        <p class="highlight">👉 Result: Better user experience, higher conversions, scalable systems</p>
+        <div class="insight">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
+            <h3>SEO Trends That Will Dominate 2026</h3>
+        </div>
+
+        <div class="insight">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+            <h3>Building High-Converting Websites</h3>
+        </div>
+
+        <div class="insight">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+            <h3>The Future of Tech Hiring</h3>
+        </div>
+
     </div>
-
-    <!-- TALENT -->
-    <div class="service">
-        <h3>Talent Placement</h3>
-        <p>
-            We help companies hire skilled professionals quickly by sourcing, screening,
-            and delivering candidates who match both technical and cultural requirements.
-        </p>
-
-        <ul>
-            <li>Access to a strong talent network</li>
-            <li>Technical and behavioral screening</li>
-            <li>Shortlisting of qualified candidates only</li>
-            <li>Reduced hiring time</li>
-            <li>Specialization in IT, sales, and digital roles</li>
-        </ul>
-
-        <p class="highlight">👉 Result: Faster hiring, better talent quality, reduced hiring risk</p>
-    </div>
-
 </section>
 
 <section class="section" id="contact">
     <h2>Start a Conversation</h2>
 
     <form onsubmit="submitForm(event)">
-        <input type="text" placeholder="Your Name" required><br><br>
-        <input type="email" placeholder="Your Email" required><br><br>
-        <textarea placeholder="How can we help?" required></textarea><br><br>
-        <button type="submit">Submit</button>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="How can we help?" required></textarea>
+        <button type="submit" class="btn">Submit</button>
     </form>
 </section>
 
