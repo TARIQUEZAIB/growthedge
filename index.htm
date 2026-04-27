@@ -12,110 +12,241 @@ body { margin:0; font-family:'Inter',sans-serif; color:#111; }
 
 /* NAV */
 nav {
-    display:flex; justify-content:space-between;
-    padding:20px 60px; border-bottom:1px solid #eee;
+    display:flex;
+    justify-content:space-between;
+    padding:20px 60px;
+    border-bottom:1px solid #eee;
 }
 .logo { font-family:'Playfair Display'; }
-.logo small { display:block; font-size:10px; color:#666; }
 
 /* HERO */
 .hero {
-    display:grid; grid-template-columns:1fr 1fr;
-    padding:80px 60px; align-items:center;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    padding:80px 60px;
+    align-items:center;
 }
 .hero h1 { font-size:48px; }
 .hero p { color:#555; }
-
-/* BUTTON */
-.btn {
-    margin-top:20px; padding:12px 24px;
-    background:#0A2540; color:white; border:none;
-}
+.hero img { width:100%; }
 
 /* SECTION */
 .section { padding:80px 60px; }
-.services {
-    display:grid; grid-template-columns:repeat(3,1fr);
+
+.grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
     gap:40px;
 }
-.service { border-top:1px solid #eee; padding-top:20px; }
+
+.card {
+    border-top:1px solid #eee;
+    padding-top:20px;
+}
+
+.card p { color:#555; }
+
+/* BUTTON */
+.btn {
+    padding:12px 24px;
+    background:#0A2540;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
 
 /* FORM */
 input, textarea {
-    width:100%; padding:12px; margin-bottom:10px;
+    width:100%;
+    padding:12px;
+    margin-bottom:10px;
     border:1px solid #ccc;
 }
 
-/* STATUS */
-#status { font-size:14px; margin-top:10px; }
+#status { font-size:14px; }
 
 /* WHATSAPP */
 #whatsapp-btn {
-    position:fixed; bottom:20px; left:20px;
-    background:#25D366; color:white;
-    padding:14px; border-radius:50%;
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    background:#25D366;
+    color:white;
+    padding:14px;
+    border-radius:50%;
+    text-decoration:none;
 }
 
 /* CHATBOT */
 #chatbot-btn {
-    position:fixed; bottom:80px; right:20px;
-    background:#0A2540; color:white;
-    padding:12px; cursor:pointer;
+    position:fixed;
+    bottom:80px;
+    right:20px;
+    background:#0A2540;
+    color:white;
+    padding:12px;
+    cursor:pointer;
 }
+
 #chatbot {
-    position:fixed; bottom:140px; right:20px;
-    width:300px; background:white;
+    position:fixed;
+    bottom:140px;
+    right:20px;
+    width:300px;
+    background:white;
     border:1px solid #ddd;
-    display:none; flex-direction:column;
+    display:none;
+    flex-direction:column;
 }
+
 #chat-header { background:#0A2540; color:white; padding:10px; }
 #chat-body { padding:10px; height:200px; overflow:auto; }
 #chat-input { display:flex; }
-#chat-input input { flex:1; border:none; padding:10px; }
+#chat-input input { flex:1; padding:10px; border:none; }
 #chat-input button { background:#0A2540; color:white; border:none; }
 
 /* RESPONSIVE */
 @media(max-width:900px){
-    .hero{grid-template-columns:1fr;}
-    .services{grid-template-columns:1fr;}
+    .hero, .grid { grid-template-columns:1fr; }
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
-    <div class="logo">GrowthEdge<small>CONSULTING</small></div>
+    <div class="logo">GrowthEdge Consulting</div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
     <div>
         <h1>Driving Growth Through SEO, Technology & Talent</h1>
-        <p>We help businesses scale with websites, SEO and hiring.</p>
+        <p>We help businesses scale with search visibility, high-performance platforms, and strategic hiring.</p>
+        <button class="btn" onclick="scrollToContact()">Start Conversation</button>
     </div>
     <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786">
 </section>
 
+<!-- CAPABILITIES -->
 <section class="section">
-<h2>Contact Us</h2>
+    <h2>Capabilities</h2>
 
-<form id="contact-form">
-    <input id="name" placeholder="Name" required>
-    <input id="email" placeholder="Email" required>
-    <textarea id="msg" placeholder="Requirement" required></textarea>
-    <button class="btn">Send Message</button>
-</form>
+    <div class="grid">
 
-<p id="status"></p>
+        <div class="card">
+            <h3>SEO Services</h3>
+            <p>Drive organic growth and inbound leads.</p>
+
+            <strong>Approach</strong>
+            <ul>
+                <li>Keyword & competitor analysis</li>
+                <li>Search intent mapping</li>
+            </ul>
+
+            <strong>Execution</strong>
+            <ul>
+                <li>Technical SEO + content optimization</li>
+                <li>Backlink building</li>
+            </ul>
+
+            <p><strong>Impact:</strong> Higher rankings, consistent traffic, lower CAC</p>
+        </div>
+
+        <div class="card">
+            <h3>Web Development</h3>
+            <p>Build scalable, high-performance systems.</p>
+
+            <strong>Approach</strong>
+            <ul>
+                <li>Business-first design thinking</li>
+                <li>User journey optimization</li>
+            </ul>
+
+            <strong>Execution</strong>
+            <ul>
+                <li>Web apps, CRM, dashboards</li>
+                <li>Performance + SEO optimized builds</li>
+            </ul>
+
+            <p><strong>Impact:</strong> Better UX, higher conversions</p>
+        </div>
+
+        <div class="card">
+            <h3>Talent Placement</h3>
+            <p>Hire faster with better quality candidates.</p>
+
+            <strong>Approach</strong>
+            <ul>
+                <li>Role-based sourcing strategy</li>
+                <li>Technical evaluation</li>
+            </ul>
+
+            <strong>Execution</strong>
+            <ul>
+                <li>Candidate screening</li>
+                <li>Shortlisting + coordination</li>
+            </ul>
+
+            <p><strong>Impact:</strong> Faster hiring, reduced risk</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="section" style="background:#f5f7fa;">
+    <h2>Case Studies</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>SEO Growth</h3>
+            <p><strong>Challenge:</strong> Low organic traffic</p>
+            <p><strong>Execution:</strong> Technical SEO + content</p>
+            <p><strong>Result:</strong> 180% traffic growth</p>
+            <p><strong>Impact:</strong> 3x leads</p>
+        </div>
+
+        <div class="card">
+            <h3>Website Revamp</h3>
+            <p><strong>Challenge:</strong> Poor conversion</p>
+            <p><strong>Execution:</strong> UI + speed optimization</p>
+            <p><strong>Result:</strong> +40% conversions</p>
+            <p><strong>Impact:</strong> Better engagement</p>
+        </div>
+
+        <div class="card">
+            <h3>Hiring Scale</h3>
+            <p><strong>Challenge:</strong> Hiring delays</p>
+            <p><strong>Execution:</strong> Screening + sourcing</p>
+            <p><strong>Result:</strong> 12 hires in 45 days</p>
+            <p><strong>Impact:</strong> 60% faster hiring</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+    <h2>Start a Conversation</h2>
+
+    <form id="contact-form">
+        <input id="name" placeholder="Name" required>
+        <input id="email" placeholder="Email" required>
+        <textarea id="msg" placeholder="Requirement" required></textarea>
+        <button class="btn">Send Message</button>
+    </form>
+
+    <p id="status"></p>
 </section>
 
 <!-- EMAILJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
-(function(){
-    emailjs.init("CiVaiIzzBo7-zRIqh"); // 🔥 replace
-})();
+(function(){ emailjs.init("CiVaiIzzBo7-zRIqh"); })();
 
 document.getElementById("contact-form").addEventListener("submit", function(e){
     e.preventDefault();
@@ -123,32 +254,30 @@ document.getElementById("contact-form").addEventListener("submit", function(e){
     const status = document.getElementById("status");
     status.innerHTML = "Sending...";
 
-    emailjs.send("service_2lwfetn", "template_vwrozwa", {
+    emailjs.send("service_2lwfetn","template_vwrozwa",{
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         message: document.getElementById("msg").value
     })
-    .then(function(){
-        status.innerHTML = "✅ Message sent successfully!";
-        document.getElementById("contact-form").reset();
-    }, function(error){
-        status.innerHTML = "❌ Failed to send.";
-        console.log(error);
+    .then(()=>{
+        status.innerHTML = "✅ Message sent!";
+        this.reset();
+    })
+    .catch(()=>{
+        status.innerHTML = "❌ Failed to send";
     });
 });
 </script>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/919891901905" target="_blank" id="whatsapp-btn">💬</a>
+<a href="https://wa.me/919891901905?text=Hi%20I%20visited%20your%20website" target="_blank" id="whatsapp-btn">💬</a>
 
 <!-- CHATBOT -->
 <div id="chatbot-btn" onclick="toggleChat()">Chat</div>
 
 <div id="chatbot">
     <div id="chat-header">Assistant</div>
-    <div id="chat-body">
-        <p>Hi 👋 What do you need? SEO / Website / Hiring</p>
-    </div>
+    <div id="chat-body">Hi 👋 What do you need?</div>
     <div id="chat-input">
         <input id="userInput">
         <button onclick="sendMessage()">➤</button>
@@ -156,6 +285,10 @@ document.getElementById("contact-form").addEventListener("submit", function(e){
 </div>
 
 <script>
+function scrollToContact(){
+    document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+}
+
 let step=0,data={};
 
 function toggleChat(){
@@ -170,23 +303,12 @@ function sendMessage(){
     let msg=input.value.trim();
     if(!msg) return;
 
-    chat.innerHTML += "<p><b>You:</b> "+msg+"</p>";
+    chat.innerHTML += "<p>You: "+msg+"</p>";
 
-    if(step===0){
-        data.service=msg;
-        chat.innerHTML += "<p><b>Bot:</b> Your name?</p>";
-        step=1;
-    } else if(step===1){
-        data.name=msg;
-        chat.innerHTML += "<p><b>Bot:</b> Your email?</p>";
-        step=2;
-    } else {
-        data.email=msg;
-
-        let text=encodeURIComponent(
-            `Service:${data.service}\nName:${data.name}\nEmail:${data.email}`
-        );
-
+    if(step===0){ data.service=msg; chat.innerHTML+="<p>Name?</p>"; step=1;}
+    else if(step===1){ data.name=msg; chat.innerHTML+="<p>Email?</p>"; step=2;}
+    else{
+        let text=encodeURIComponent(`Service:${data.service}\nName:${data.name}\nEmail:${msg}`);
         window.open("https://wa.me/919891901905?text="+text);
         step=0;
     }
