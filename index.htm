@@ -12,11 +12,6 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     color: #111;
-    background: #fff;
-}
-
-h1,h2,h3 {
-    font-family: 'Playfair Display', serif;
 }
 
 /* NAV */
@@ -32,7 +27,6 @@ nav {
 
 .logo {
     font-family: 'Playfair Display';
-    letter-spacing: 1px;
 }
 
 .logo small {
@@ -45,7 +39,6 @@ nav a {
     margin-left: 30px;
     text-decoration: none;
     color: #111;
-    font-size: 14px;
 }
 
 /* HERO */
@@ -62,12 +55,10 @@ nav a {
 
 .hero p {
     color: #555;
-    max-width: 500px;
 }
 
 .hero img {
     width: 100%;
-    border-radius: 6px;
 }
 
 /* BUTTON */
@@ -85,11 +76,6 @@ nav a {
     padding: 80px 60px;
 }
 
-.section h2 {
-    margin-bottom: 40px;
-}
-
-/* SERVICES */
 .services {
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -101,54 +87,98 @@ nav a {
     padding-top: 20px;
 }
 
-.service p {
-    color: #555;
-}
-
 .service ul {
     padding-left: 18px;
     color: #555;
 }
 
-/* LIGHT BG */
+/* LIGHT */
 .light {
     background: #f5f7fa;
-}
-
-/* CASE STUDY */
-.case {
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-}
-
-/* CONTACT */
-form {
-    max-width: 500px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    margin-bottom: 15px;
 }
 
 /* FOOTER */
 footer {
     border-top: 1px solid #eee;
     padding: 30px 60px;
-    color: #777;
+}
+
+/* CONTACT */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+
+/* WHATSAPP */
+#whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #25D366;
+    color: white;
+    padding: 14px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+/* CHATBOT */
+#chatbot-btn {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: #0A2540;
+    color: white;
+    padding: 12px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#chatbot {
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    width: 300px;
+    background: white;
+    border: 1px solid #ddd;
+    display: none;
+    flex-direction: column;
+}
+
+#chat-header {
+    background: #0A2540;
+    color: white;
+    padding: 10px;
+}
+
+#chat-body {
+    padding: 10px;
+    height: 200px;
+    overflow-y: auto;
+}
+
+#chat-input {
+    display: flex;
+}
+
+#chat-input input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+}
+
+#chat-input button {
+    background: #0A2540;
+    color: white;
+    border: none;
+    padding: 10px;
 }
 
 /* RESPONSIVE */
 @media(max-width:900px) {
-    .hero {
-        grid-template-columns: 1fr;
-    }
-
-    .services {
-        grid-template-columns: 1fr;
-    }
+    .hero { grid-template-columns: 1fr; }
+    .services { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -163,7 +193,7 @@ footer {
     </div>
 
     <div>
-        <a href="#services">Capabilities</a>
+        <a href="#services">Services</a>
         <a href="#cases">Case Studies</a>
         <a href="#contact">Contact</a>
     </div>
@@ -172,19 +202,10 @@ footer {
 <!-- HERO -->
 <section class="hero">
     <div>
-        <h1>
-            Driving Growth Through SEO,<br>
-            Technology, and Talent
-        </h1>
-
-        <p>
-            We help organizations scale with high-performance websites,
-            strong search visibility, and strategic hiring solutions.
-        </p>
-
-        <button class="btn" onclick="scrollToContact()">Start a Conversation</button>
+        <h1>Driving Growth Through SEO, Technology & Talent</h1>
+        <p>We help businesses scale with websites, search visibility, and hiring solutions.</p>
+        <button class="btn" onclick="scrollToContact()">Start Conversation</button>
     </div>
-
     <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786">
 </section>
 
@@ -193,67 +214,54 @@ footer {
     <h2>Capabilities</h2>
 
     <div class="services">
-
         <div class="service">
             <h3>SEO Services</h3>
-            <p>Improve visibility and drive inbound growth.</p>
             <ul>
-                <li>Keyword research & strategy</li>
-                <li>Technical SEO optimization</li>
+                <li>Keyword strategy</li>
+                <li>Technical SEO</li>
                 <li>Content & backlinks</li>
-                <li>Performance tracking</li>
             </ul>
         </div>
 
         <div class="service">
             <h3>Web Development</h3>
-            <p>Build scalable, high-performance platforms.</p>
             <ul>
-                <li>Business websites & web apps</li>
+                <li>Websites & apps</li>
                 <li>CRM & dashboards</li>
                 <li>UI/UX design</li>
-                <li>Performance optimization</li>
             </ul>
         </div>
 
         <div class="service">
             <h3>Talent Placement</h3>
-            <p>Hire skilled professionals quickly.</p>
             <ul>
                 <li>Candidate sourcing</li>
-                <li>Technical screening</li>
-                <li>Shortlisting</li>
-                <li>Fast hiring cycle</li>
+                <li>Screening</li>
+                <li>Fast hiring</li>
             </ul>
         </div>
-
     </div>
 </section>
 
-<!-- CASE STUDIES -->
+<!-- CASES -->
 <section class="section" id="cases">
     <h2>Case Studies</h2>
 
     <div class="services">
-
-        <div class="case">
-            <h3>SEO Growth for E-commerce</h3>
-            <p>Increased organic traffic by 180% in 6 months.</p>
-            <p><strong>Result:</strong> 3x more leads</p>
+        <div class="service">
+            <h3>SEO Growth</h3>
+            <p>180% traffic increase</p>
         </div>
 
-        <div class="case">
+        <div class="service">
             <h3>Website Revamp</h3>
-            <p>Redesigned website improving speed & UX.</p>
-            <p><strong>Result:</strong> 40% higher conversions</p>
+            <p>40% higher conversion</p>
         </div>
 
-        <div class="case">
-            <h3>Hiring for Startup</h3>
-            <p>Placed 12+ developers in 45 days.</p>
-            <p><strong>Result:</strong> 60% faster hiring</p>
+        <div class="service">
+            <h3>Hiring Scale</h3>
+            <p>60% faster hiring</p>
         </div>
-
     </div>
 </section>
 
@@ -261,27 +269,77 @@ footer {
 <section class="section" id="contact">
     <h2>Start a Conversation</h2>
 
-    <form onsubmit="submitForm(event)">
-        <input placeholder="Name" required>
-        <input placeholder="Email" required>
-        <textarea placeholder="How can we help?" required></textarea>
+    <form>
+        <input placeholder="Name">
+        <input placeholder="Email">
+        <textarea placeholder="Requirement"></textarea>
         <button class="btn">Submit</button>
     </form>
 </section>
 
-<!-- FOOTER -->
 <footer>
     © 2026 GrowthEdge Consulting
 </footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/919891901905?text=Hi%20I%20need%20help" target="_blank" id="whatsapp-btn">💬</a>
+
+<!-- CHATBOT -->
+<div id="chatbot-btn" onclick="toggleChat()">Chat</div>
+
+<div id="chatbot">
+    <div id="chat-header">Assistant</div>
+    <div id="chat-body">
+        <p>Hi 👋 What do you need?<br>SEO / Website / Hiring</p>
+    </div>
+    <div id="chat-input">
+        <input id="userInput">
+        <button onclick="sendMessage()">➤</button>
+    </div>
+</div>
 
 <script>
 function scrollToContact() {
     document.getElementById('contact').scrollIntoView({behavior:'smooth'});
 }
 
-function submitForm(e) {
-    e.preventDefault();
-    alert("Thank you! We will contact you shortly.");
+let step = 0;
+let data = {};
+
+function toggleChat() {
+    const bot = document.getElementById("chatbot");
+    bot.style.display = bot.style.display === "flex" ? "none" : "flex";
+}
+
+function sendMessage() {
+    let msg = userInput.value;
+    if(!msg) return;
+
+    chatBody.innerHTML += "<p><b>You:</b> "+msg+"</p>";
+
+    if(step===0){
+        data.service = msg;
+        chatBody.innerHTML += "<p><b>Bot:</b> Your name?</p>";
+        step=1;
+    }
+    else if(step===1){
+        data.name = msg;
+        chatBody.innerHTML += "<p><b>Bot:</b> Your email?</p>";
+        step=2;
+    }
+    else{
+        data.email = msg;
+
+        let text = encodeURIComponent(
+            `Service: ${data.service}\nName: ${data.name}\nEmail: ${data.email}`
+        );
+
+        window.open("https://wa.me/919XXXXXXXXX?text="+text);
+
+        step=0;
+    }
+
+    userInput.value="";
 }
 </script>
 
