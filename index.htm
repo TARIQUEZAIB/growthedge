@@ -5,71 +5,143 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GrowthEdge Consulting</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    color: #111;
+    background: #fff;
 }
 
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* HEADER */
 header {
     background: #0a2540;
     color: white;
-    padding: 20px;
+    padding: 30px 20px;
     text-align: center;
 }
 
+header p {
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+/* NAV */
 nav {
-    background: #102a43;
-    padding: 10px;
+    background: white;
+    padding: 15px;
     text-align: center;
+    border-bottom: 1px solid #eee;
 }
 
 nav a {
-    color: white;
-    margin: 0 15px;
+    color: #111;
+    margin: 0 20px;
     text-decoration: none;
+    font-size: 14px;
 }
 
+/* HERO */
 .hero {
     background: url('https://images.unsplash.com/photo-1551434678-e076c223a692') center/cover;
     color: white;
-    padding: 100px 20px;
+    padding: 140px 20px;
     text-align: center;
+    position: relative;
 }
 
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 37, 64, 0.7);
+}
+
+.hero * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: auto;
+    opacity: 0.9;
+}
+
+/* BUTTON */
+button {
+    padding: 12px 26px;
+    background: black;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* SECTIONS */
 .section {
-    padding: 50px 20px;
+    padding: 80px 20px;
     text-align: center;
 }
 
+.section h2 {
+    margin-bottom: 40px;
+}
+
+/* SERVICES */
 .services {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 30px;
 }
 
 .card {
-    background: #f4f4f4;
+    background: white;
     margin: 10px;
-    padding: 20px;
+    padding: 25px;
     width: 280px;
-    border-radius: 8px;
+    border: 1px solid #eee;
+    text-align: left;
+    transition: 0.3s;
 }
 
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* ABOUT */
+#about p {
+    max-width: 700px;
+    margin: auto;
+    color: #555;
+}
+
+/* CONTACT */
+input, textarea {
+    width: 300px;
+    max-width: 90%;
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+/* FOOTER */
 footer {
     background: #0a2540;
     color: white;
     text-align: center;
     padding: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    background: #ff7a18;
-    border: none;
-    color: white;
-    cursor: pointer;
 }
 </style>
 
@@ -78,7 +150,7 @@ button {
 
 <header>
     <h1>GrowthEdge Consulting</h1>
-    <p>Lead Generation | Talent Placement | Business Growth</p>
+    <p>SEO Services | Web Development | Talent Placement</p>
 </header>
 
 <nav>
@@ -89,25 +161,28 @@ button {
 </nav>
 
 <section class="hero" id="home">
-    <h2>Accelerate Your Business Growth</h2>
-    <p>We generate high-quality leads and connect you with top talent</p>
-    <button onclick="scrollToContact()">Get Started</button>
+    <h2>Building Digital Growth Through SEO, Technology & Talent</h2>
+    <p>We help businesses grow with high-performance websites, strong search visibility, and top-tier talent.</p>
+    <button onclick="scrollToContact()">Start a Conversation</button>
 </section>
 
 <section class="section" id="services">
-    <h2>Our Services</h2>
+    <h2>Our Capabilities</h2>
+
     <div class="services">
         <div class="card">
-            <h3>Lead Generation</h3>
-            <p>B2B & B2C targeted lead generation with high conversion rates.</p>
+            <h3>SEO Services</h3>
+            <p>Improve rankings, increase organic traffic, and generate consistent inbound leads.</p>
         </div>
+
+        <div class="card">
+            <h3>Web Development</h3>
+            <p>Modern, scalable websites and applications designed for performance and growth.</p>
+        </div>
+
         <div class="card">
             <h3>Talent Placement</h3>
-            <p>Hire top-tier professionals across IT, Sales, and Operations.</p>
-        </div>
-        <div class="card">
-            <h3>Outsourcing</h3>
-            <p>Dedicated remote teams to scale your business efficiently.</p>
+            <p>Connecting companies with skilled professionals across IT and digital domains.</p>
         </div>
     </div>
 </section>
@@ -115,13 +190,13 @@ button {
 <section class="section" id="about">
     <h2>About Us</h2>
     <p>
-        We are a results-driven consulting firm helping businesses grow through
-        strategic lead generation and efficient hiring solutions.
+        GrowthEdge Consulting is a results-driven firm helping businesses scale through SEO,
+        technology, and talent. We combine strategy with execution to deliver measurable outcomes.
     </p>
 </section>
 
 <section class="section" id="contact">
-    <h2>Contact Us</h2>
+    <h2>Start a Conversation</h2>
     <form onsubmit="submitForm(event)">
         <input type="text" placeholder="Your Name" required><br><br>
         <input type="email" placeholder="Your Email" required><br><br>
