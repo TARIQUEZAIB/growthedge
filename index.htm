@@ -97,18 +97,18 @@ nav a {
     background: #f5f7fa;
 }
 
-/* FOOTER */
-footer {
-    border-top: 1px solid #eee;
-    padding: 30px 60px;
-}
-
 /* CONTACT */
 input, textarea {
     width: 100%;
     padding: 12px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
+}
+
+/* FOOTER */
+footer {
+    border-top: 1px solid #eee;
+    padding: 30px 60px;
 }
 
 /* WHATSAPP */
@@ -121,6 +121,7 @@ input, textarea {
     padding: 14px;
     border-radius: 50%;
     font-size: 20px;
+    text-decoration: none;
 }
 
 /* CHATBOT */
@@ -156,6 +157,7 @@ input, textarea {
     padding: 10px;
     height: 200px;
     overflow-y: auto;
+    font-size: 13px;
 }
 
 #chat-input {
@@ -164,8 +166,8 @@ input, textarea {
 
 #chat-input input {
     flex: 1;
-    border: none;
     padding: 10px;
+    border: none;
 }
 
 #chat-input button {
@@ -206,6 +208,7 @@ input, textarea {
         <p>We help businesses scale with websites, search visibility, and hiring solutions.</p>
         <button class="btn" onclick="scrollToContact()">Start Conversation</button>
     </div>
+
     <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786">
 </section>
 
@@ -243,7 +246,7 @@ input, textarea {
     </div>
 </section>
 
-<!-- CASES -->
+<!-- CASE STUDIES -->
 <section class="section" id="cases">
     <h2>Case Studies</h2>
 
@@ -282,7 +285,7 @@ input, textarea {
 </footer>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/919891901905?text=Hi%20I%20need%20help" target="_blank" id="whatsapp-btn">💬</a>
+<a href="https://wa.me/919XXXXXXXXX?text=Hi%20I%20need%20help" target="_blank" id="whatsapp-btn">💬</a>
 
 <!-- CHATBOT -->
 <div id="chatbot-btn" onclick="toggleChat()">Chat</div>
@@ -290,10 +293,10 @@ input, textarea {
 <div id="chatbot">
     <div id="chat-header">Assistant</div>
     <div id="chat-body">
-        <p>Hi 👋 What do you need?<br>SEO / Website / Hiring</p>
+        <p><b>Hi 👋</b><br>What do you need?<br>SEO / Website / Hiring</p>
     </div>
     <div id="chat-input">
-        <input id="userInput">
+        <input id="userInput" placeholder="Type here...">
         <button onclick="sendMessage()">➤</button>
     </div>
 </div>
@@ -308,38 +311,46 @@ let data = {};
 
 function toggleChat() {
     const bot = document.getElementById("chatbot");
-    bot.style.display = bot.style.display === "flex" ? "none" : "flex";
+    bot.style.display = (bot.style.display === "flex") ? "none" : "flex";
 }
 
 function sendMessage() {
-    let msg = userInput.value;
-    if(!msg) return;
+    const input = document.getElementById("userInput");
+    const chatBody = document.getElementById("chat-body");
 
-    chatBody.innerHTML += "<p><b>You:</b> "+msg+"</p>";
+    let msg = input.value.trim();
+    if (!msg) return;
 
-    if(step===0){
+    chatBody.innerHTML += "<p><b>You:</b> " + msg + "</p>";
+
+    if (step === 0) {
         data.service = msg;
-        chatBody.innerHTML += "<p><b>Bot:</b> Your name?</p>";
-        step=1;
+        chatBody.innerHTML += "<p><b>Bot:</b> Great. What's your name?</p>";
+        step = 1;
     }
-    else if(step===1){
+    else if (step === 1) {
         data.name = msg;
         chatBody.innerHTML += "<p><b>Bot:</b> Your email?</p>";
-        step=2;
+        step = 2;
     }
-    else{
+    else if (step === 2) {
         data.email = msg;
 
         let text = encodeURIComponent(
-            `Service: ${data.service}\nName: ${data.name}\nEmail: ${data.email}`
+            `Hi, I need ${data.service}\nName: ${data.name}\nEmail: ${data.email}`
         );
 
-        window.open("https://wa.me/919XXXXXXXXX?text="+text);
+        chatBody.innerHTML += "<p><b>Bot:</b> Redirecting to WhatsApp...</p>";
 
-        step=0;
+        setTimeout(() => {
+            window.open("https://wa.me/919XXXXXXXXX?text=" + text, "_blank");
+        }, 1000);
+
+        step = 0;
     }
 
-    userInput.value="";
+    input.value = "";
+    chatBody.scrollTop = chatBody.scrollHeight;
 }
 </script>
 
