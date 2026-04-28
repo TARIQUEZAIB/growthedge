@@ -23,23 +23,13 @@ body { margin:0; font-family:'Inter',sans-serif; color:#111; }
     z-index:1000;
 }
 
-.logo-main {
-    font-family:'Playfair Display',serif;
-    font-size:24px;
-    color:#0A2540;
-}
-
-.logo-sub {
-    font-size:10px;
-    letter-spacing:3px;
-    color:#777;
-}
+.logo-main { font-family:'Playfair Display'; font-size:24px; color:#0A2540; }
+.logo-sub { font-size:10px; letter-spacing:3px; color:#777; }
 
 .nav-links a {
     margin:0 20px;
     text-decoration:none;
     color:#333;
-    font-size:14px;
 }
 
 .nav-cta {
@@ -49,42 +39,19 @@ body { margin:0; font-family:'Inter',sans-serif; color:#111; }
     color:#0A2540;
     cursor:pointer;
 }
-.nav-cta:hover { background:#0A2540; color:white; }
 
 /* HERO */
 .hero {
     display:grid;
     grid-template-columns:1fr 1fr;
     padding:80px 60px;
-    align-items:center;
 }
 .hero h1 { font-size:48px; }
-.hero p { color:#555; }
-.hero img { width:100%; }
 
 /* SECTION */
 .section { padding:80px 60px; }
-
-.grid {
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:40px;
-}
-
-.card {
-    border-top:1px solid #eee;
-    padding-top:20px;
-}
-
-.card p { color:#555; }
-
-/* BUTTON */
-.btn {
-    padding:12px 24px;
-    background:#0A2540;
-    color:white;
-    border:none;
-}
+.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; }
+.card { border-top:1px solid #eee; padding-top:20px; }
 
 /* FORM */
 input, textarea {
@@ -94,7 +61,12 @@ input, textarea {
     border:1px solid #ccc;
 }
 
-#status { font-size:14px; }
+.btn {
+    padding:12px 24px;
+    background:#0A2540;
+    color:white;
+    border:none;
+}
 
 /* WHATSAPP */
 #whatsapp-btn {
@@ -105,7 +77,6 @@ input, textarea {
     color:white;
     padding:14px;
     border-radius:50%;
-    text-decoration:none;
 }
 
 /* CHATBOT */
@@ -123,7 +94,7 @@ input, textarea {
     position:fixed;
     bottom:140px;
     right:20px;
-    width:300px;
+    width:320px;
     background:white;
     border:1px solid #ddd;
     display:none;
@@ -131,21 +102,19 @@ input, textarea {
 }
 
 #chat-header { background:#0A2540; color:white; padding:10px; }
-#chat-body { padding:10px; height:200px; overflow:auto; }
+#chat-body { padding:10px; height:220px; overflow:auto; font-size:13px; }
 #chat-input { display:flex; }
 #chat-input input { flex:1; padding:10px; border:none; }
 #chat-input button { background:#0A2540; color:white; border:none; }
 
-/* RESPONSIVE */
 @media(max-width:900px){
-    .hero,.grid { grid-template-columns:1fr; }
+.hero,.grid { grid-template-columns:1fr; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav class="navbar">
     <div>
         <div class="logo-main">GrowthEdge</div>
@@ -158,70 +127,35 @@ input, textarea {
         <a href="#contact">Contact</a>
     </div>
 
-    <button class="nav-cta" onclick="scrollToContact()">Start a Conversation</button>
+    <button class="nav-cta" onclick="scrollToContact()">Start Conversation</button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
     <div>
         <h1>Driving Growth Through SEO, Technology & Talent</h1>
-        <p>We help businesses scale with visibility, performance, and hiring.</p>
+        <p>We help businesses scale with visibility and performance.</p>
     </div>
-    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786">
+    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" style="width:100%;">
 </section>
 
-<!-- CAPABILITIES -->
 <section class="section" id="services">
 <h2>Capabilities</h2>
-
 <div class="grid">
-
-<div class="card">
-<h3>SEO Services</h3>
-<p>Keyword strategy, technical SEO, content optimization.</p>
-<p><strong>Impact:</strong> Higher rankings, consistent leads</p>
-</div>
-
-<div class="card">
-<h3>Web Development</h3>
-<p>Websites, apps, dashboards, UI/UX.</p>
-<p><strong>Impact:</strong> Better conversion & performance</p>
-</div>
-
-<div class="card">
-<h3>Talent Placement</h3>
-<p>Sourcing, screening, hiring support.</p>
-<p><strong>Impact:</strong> Faster hiring, better talent</p>
-</div>
-
+<div class="card"><h3>SEO</h3><p>Organic growth strategy & execution.</p></div>
+<div class="card"><h3>Web Dev</h3><p>High-performance websites & apps.</p></div>
+<div class="card"><h3>Hiring</h3><p>Fast, quality talent placement.</p></div>
 </div>
 </section>
 
-<!-- CASE STUDIES -->
 <section class="section" id="cases" style="background:#f5f7fa;">
 <h2>Case Studies</h2>
-
 <div class="grid">
-
-<div class="card">
-<h3>SEO Growth</h3>
-<p>180% traffic increase → 3x leads</p>
-</div>
-
-<div class="card">
-<h3>Website Revamp</h3>
-<p>+40% conversions</p>
-</div>
-
-<div class="card">
-<h3>Hiring Scale</h3>
-<p>12 hires in 45 days</p>
-</div>
-
+<div class="card"><h3>SEO</h3><p>180% traffic growth</p></div>
+<div class="card"><h3>Website</h3><p>+40% conversions</p></div>
+<div class="card"><h3>Hiring</h3><p>12 hires in 45 days</p></div>
 </div>
 </section>
 
-<!-- CONTACT -->
 <section class="section" id="contact">
 <h2>Start a Conversation</h2>
 
@@ -235,7 +169,7 @@ input, textarea {
 <p id="status"></p>
 </section>
 
-<!-- EMAILJS -->
+<!-- EMAIL -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
@@ -246,31 +180,22 @@ e.preventDefault();
 
 const status = document.getElementById("status");
 
-// ✅ FIXED
 const name = document.getElementById("name").value;
 const email = document.getElementById("email").value;
 const message = document.getElementById("msg").value;
 
 status.innerHTML = "Sending...";
 
-emailjs.send("service_2lwfetn","template_vwrozwa",{
-    name: name,
-    email: email,
-    message: message
+emailjs.send("service_2lwfetn","template_vwrozwa",{name,email,message})
+.then(()=>{
+return emailjs.send("service_2lwfetn","template_mdxu4m9",{name,email});
 })
 .then(()=>{
-    return emailjs.send("service_2lwfetn","template_mdxu4m9",{
-        name: name,
-        email: email
-    });
+status.innerHTML="✅ Message sent!";
+this.reset();
 })
-.then(()=>{
-    status.innerHTML = "✅ Message sent!";
-    document.getElementById("contact-form").reset();
-})
-.catch((error)=>{
-    status.innerHTML = "❌ Failed";
-    console.log(error);
+.catch(()=>{
+status.innerHTML="❌ Failed";
 });
 });
 </script>
@@ -282,8 +207,10 @@ emailjs.send("service_2lwfetn","template_vwrozwa",{
 <div id="chatbot-btn" onclick="toggleChat()">Chat</div>
 
 <div id="chatbot">
-<div id="chat-header">Assistant</div>
-<div id="chat-body">Hi 👋 What do you need?</div>
+<div id="chat-header">GrowthEdge Assistant</div>
+<div id="chat-body">
+<p><b>Bot:</b> Hi 👋 What do you need? (SEO / Website / Hiring)</p>
+</div>
 <div id="chat-input">
 <input id="userInput">
 <button onclick="sendMessage()">➤</button>
@@ -291,32 +218,61 @@ emailjs.send("service_2lwfetn","template_vwrozwa",{
 </div>
 
 <script>
-function scrollToContact(){
-document.getElementById('contact').scrollIntoView({behavior:'smooth'});
-}
-
-let step=0,data={};
+let state="start";
+let lead={};
 
 function toggleChat(){
 const bot=document.getElementById("chatbot");
 bot.style.display = bot.style.display==="flex"?"none":"flex";
 }
 
+function addMessage(sender,text){
+const chat=document.getElementById("chat-body");
+chat.innerHTML+=`<p><b>${sender}:</b> ${text}</p>`;
+chat.scrollTop=chat.scrollHeight;
+}
+
 function sendMessage(){
 const input=document.getElementById("userInput");
-const chat=document.getElementById("chat-body");
-
 let msg=input.value.trim();
 if(!msg) return;
 
-chat.innerHTML += "<p>You: "+msg+"</p>";
+addMessage("You",msg);
 
-if(step===0){ data.service=msg; chat.innerHTML+="<p>Name?</p>"; step=1;}
-else if(step===1){ data.name=msg; chat.innerHTML+="<p>Email?</p>"; step=2;}
+if(state==="start"){
+lead.service=msg;
+addMessage("Bot","Your name?");
+state="name";
+}
+else if(state==="name"){
+lead.name=msg;
+addMessage("Bot","Your email?");
+state="email";
+}
+else if(state==="email"){
+lead.email=msg;
+addMessage("Bot","Budget?");
+state="budget";
+}
+else if(state==="budget"){
+lead.budget=msg;
+addMessage("Bot","Timeline?");
+state="timeline";
+}
 else{
-let text=encodeURIComponent(`Service:${data.service}\nName:${data.name}\nEmail:${msg}`);
+lead.timeline=msg;
+
+let text=encodeURIComponent(
+`Service:${lead.service}
+Name:${lead.name}
+Email:${lead.email}
+Budget:${lead.budget}
+Timeline:${lead.timeline}`
+);
+
 window.open("https://wa.me/919891901905?text="+text);
-step=0;
+state="start";
+lead={};
 }
 
 input.value="";
