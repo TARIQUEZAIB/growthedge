@@ -225,7 +225,12 @@ function toggleChat(){
 const bot=document.getElementById("chatbot");
 bot.style.display = bot.style.display==="flex"?"none":"flex";
 }
-
+function scrollToContact(){
+    const section = document.getElementById("contact");
+    if(section){
+        section.scrollIntoView({ behavior: "smooth" });
+    }
+}
 function addMessage(sender,text){
 const chat=document.getElementById("chat-body");
 chat.innerHTML+=`<p><b>${sender}:</b> ${text}</p>`;
